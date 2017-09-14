@@ -68,6 +68,8 @@ CThreadsDlg::CThreadsDlg(CWnd* pParent /*=NULL*/)
     , bWorking(FALSE)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
+    SetProcessAffinityMask(GetCurrentProcess(), 0x1);
+    SetThreadPriority(GetCurrentThread(), THREAD_PRIORITY_HIGHEST);
 }
 
 CThreadsDlg::~CThreadsDlg()
